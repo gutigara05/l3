@@ -1,0 +1,26 @@
+CODIGOS PA ESTUDIAR SQL:
+
+SELECT DISTINCT country_id, population FROM country_stats			                        #dos columnas de la tabla country_stats
+
+SELECT * FROM country_stats WHERE country_id = 1 ORDER BY population DESC	            #selecciona toda la columna de country_stats que cumpla que country_id sea igual a uno, y muéstralo ordenando la columna población en orden descendente
+
+SELECT * FROM country_stats WHERE population LIKE '%4'				                        #selecciona toda la columna de country_stats que cumpla que la población termine en 4 (todos los números de antes no importan; %)
+
+SELECT * FROM country_stats WHERE NOT  population LIKE '10637%' OR country_id = 2 LIMIT 3; 	#Se puede usar and en vez de or, se muestran solo los 3 primeros resultados
+
+SELECT COUNT(*) FROM country_stats;						                                        #cuenta todos los elementos de la tabla, o de la columna year (los no nulos)
+SELECT COUNT(year) FROM country_stats;						
+
+SELECT SUM(population) FROM country_stats					                                     #sumatorio de los elementos de la columna population, AVG hace la media
+										
+
+SELECT * FROM country_stats WHERE country_id IN ('1', '2')			                      #la ventaja de IN es q se puede buscar mas de un valor
+
+SELECT * FROM country_stats WHERE country_id BETWEEN 1 AND 3			                    #valores entre 1 y 3 de country_id
+
+UPDATE  cartas SET disponibilidad = 3 WHERE nº_pokedex = 4 			                      #actualiza el valor de disponibilidad en la fila 4 
+
+SELECT users.name, languages.name						                                          #join para unir dos tablas de relación M:N
+FROM users_languages
+JOIN users ON users_languages.user_id=users_id
+JOIN languages ON users_languages.language_id=languages.language_id
